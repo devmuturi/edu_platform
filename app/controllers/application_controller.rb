@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include InertiaRails::Controller
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Share authentication + roles + flash messages globally
@@ -23,6 +24,8 @@ class ApplicationController < ActionController::Base
       error: flash[:alert]
     }
   }
+
+  # layout -> { inertia? ? "inertia_meta" : "application" }
 
   protected
 
