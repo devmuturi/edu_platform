@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'inertia-example', to: 'inertia_example#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  get "inertia-example", to: "inertia_example#index"
+  post "/request-educator", to: "role_requests#create", as: "request_eductor"
+  post "/request_eductor/:id", to: "role_requests#approve", as: "approve_educator"
 end
