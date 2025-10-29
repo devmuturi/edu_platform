@@ -57,19 +57,19 @@ export default function Navbar() {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/logout" method="post">Logout</Link>
+                  <Link href="/users/sign_out" method="delete">Logout</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            // ✅ If NOT logged in
+            // If NOT logged in
             <>
-              <Link href="/login">
-                <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+              <Link href="/users/sign_in" method="get">
+                <Button variant="outline" className="bg-white text-black hover:bg-gray-200">
                   Login
                 </Button>
               </Link>
-              <Link href="/register">
+              <Link href="/users/sign_up" method="get">
                 <Button className="bg-white text-black hover:bg-gray-200">
                   Sign Up
                 </Button>
@@ -94,11 +94,11 @@ export default function Navbar() {
 
             <div className="mt-6 border-t border-zinc-700 pt-4">
               {auth?.user ? (
-                <Link href="/logout" method="post">Logout</Link>
+                <Link href="/users/sign_out" method="delete">Logout</Link>
               ) : (
                 <>
-                  <Link href="/login" className="block mb-2">Login</Link>
-                  <Link href="/register" className="block">Sign Up</Link>
+                  <Link href="/users/sign_in" className="block mb-2" method="post">Login</Link>
+                  <Link href="/users/sign_up" className="block" method="post">Sign Up</Link>
                 </>
               )}
             </div>
