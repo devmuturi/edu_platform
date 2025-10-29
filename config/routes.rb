@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "home#index"
   devise_for :users
   get "inertia-example", to: "inertia_example#index"
   post "/request-educator", to: "role_requests#create", as: "request_eductor"
